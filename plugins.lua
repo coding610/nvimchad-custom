@@ -1,4 +1,4 @@
-local plugins = {
+return {
     ------------------ LSP -------------------
     {
         "neovim/nvim-lspconfig",
@@ -71,7 +71,6 @@ local plugins = {
             }
         }
     },
-
     {
         "nvim-telescope/telescope.nvim",
         opts = {
@@ -88,6 +87,13 @@ local plugins = {
             }
         }
     },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        event = "VeryLazy",
+        config = function()
+            require "custom.configs.harpoon"
+        end,
+    }
 }
-
-return plugins

@@ -32,11 +32,17 @@ Map('n', "<leader>xd", ":%!xxd<CR>", {silent=true})
 Map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 Map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 Map("n", "dd", "Vd", { silent = true })
+Map("n", "<leader>B", ":hi Normal guibg=NONE ctermbg=NONE<CR>", { silent = true, desc = "remove bg color" })
+Map("n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", { silent = true, desc = "popup diagnostic" })
+Map("n", "<leader>E", ":lua vim.lsp.buf.hover() <CR>", { silent = true, desc = "popup description" })
+
 Map("n", "m", ":vsplit | term make<CR>", { silent = true })
 Map("n", "M", ":horizontal split | term make<CR>", { silent = true })
 Map("n", "<leader>mr", ":vsplit | term ./bin/main<CR>", { silent = true })
 Map("n", "<leader>Mr", ":horizontal split | term ./bin/main<CR>", { silent = true })
-Map("n", "<leader>B", ":hi Normal guibg=NONE ctermbg=NONE<CR>")
+Map("n", "<leader>mg", ":vsplit | term go run .<CR>", { silent = true })
+Map("n", "<leader>Mg", ":horizontal split | term go run .<CR>", { silent = true })
+Map("n", "<C-g>", ":vsplit | term go run .<CR>", { silent = true })
 
 local set = vim.opt
 local sot = vim.o
@@ -44,6 +50,7 @@ set.guicursor = ""
 set.number = true
 set.relativenumber = true
 set.wrap = false
+sot.scrolloff = 10
 
 sot.foldenable = true
 set.foldmethod = "indent"
