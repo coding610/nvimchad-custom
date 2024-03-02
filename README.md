@@ -4,6 +4,8 @@ Nvim-Chad neovim configuration with no custom configuration
 
 
 # Installation
+```cpp
 cd ∼/.config/nvim/lua
 git clone https://github.com/coding610/nvimchad-custom/
 mv nvimchad-custom custom
+```
