@@ -1,5 +1,5 @@
 return {
-    ------------------ LSP -------------------
+    ------------------ INTELLISENSE -------------------
     {
         "neovim/nvim-lspconfig",
         config = function()
@@ -12,6 +12,27 @@ return {
         config = function()
             require 'custom.configs.lsp_extensions'
         end,
+    },
+
+    ------------------ SQL DEV -------------------
+    {
+        "tpope/vim-dadbod",
+        event = "VeryLazy",
+        opts = {},
+        config = function() end
+    },
+    {
+        "kristijanhusak/vim-dadbod-ui",
+        event = "VeryLazy",
+        opts = {},
+        config = function() end
+    },
+    {
+        "kristijanhusak/vim-dadbod-completion",
+        event = "VeryLazy",
+        after = 'nvim-cmp',
+        opts = {},
+        config = function() end
     },
 
     ------------------ DEBUGGING -------------------
@@ -39,7 +60,8 @@ return {
         "rcarriga/nvim-dap-ui",
         event = "VeryLazy",
         dependencies = {
-            "mfussenegger/nvim-dap"
+            "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio"
         },
         config = function()
             local dap = require("dap")
@@ -58,7 +80,7 @@ return {
     },
 
 
-    ------------------ OTHER -------------------
+    ------------------ OVERWRITES -------------------
     {
         "williamboman/mason.nvim",
         opts = {
@@ -70,6 +92,11 @@ return {
                 "rust-analyzer",
             }
         }
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        event = "VeryLazy",
+        opts = {}
     },
     {
         "nvim-telescope/telescope.nvim",
@@ -87,6 +114,22 @@ return {
             }
         }
     },
+
+    {
+        "hrsh7th/nvim-cmp",
+        opts = {
+            sources = {
+                { name = "nvim_lsp" },
+                { name = "luasnip" },
+                { name = "buffer" },
+                { name = "nvim_lua" },
+                { name = "path" },
+                { name = "vim-dadbod-completion" },
+            }
+        }
+    },
+
+    ------------------ OTHER -------------------
     {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
@@ -95,5 +138,20 @@ return {
         config = function()
             require "custom.configs.harpoon"
         end,
-    }
+    },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
+    {
+        'vidocqh/data-viewer.nvim',
+        opts = {},
+        event = "VeryLazy",
+        dependencies = {
+          "nvim-lua/plenary.nvim",
+          "kkharji/sqlite.lua", -- Optional, sqlite support
+        }
+    },
 }

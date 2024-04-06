@@ -6,6 +6,11 @@ function Map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+Map('n', '<C-->', '<C-w>-')
+Map('n', '<C-+>', '<C-w>+')
+Map('n', '<C-<>', '<C-w><')
+Map('n', '<C->>', '<C-w>>')
+
 Map('n', '<Up>', ':echo \"use hjlk\"<CR>')
 Map('n', '<Down>', ':echo \"use hjlk\"<CR>')
 Map('n', '<Left>', ':echo \"use hjlk\"<CR>')
@@ -36,6 +41,8 @@ Map("n", "<leader>B", ":hi Normal guibg=NONE ctermbg=NONE<CR>", { silent = true,
 Map("n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", { silent = true, desc = "popup diagnostic" })
 Map("n", "<leader>E", ":lua vim.lsp.buf.hover() <CR>", { silent = true, desc = "popup description" })
 
+Map("n", "<leader>S", ":DBUIToggle<CR>", { silent = true, desc = "[S]QL" })
+
 Map("n", "m", ":vsplit | term make<CR>", { silent = true })
 Map("n", "M", ":horizontal split | term make<CR>", { silent = true })
 Map("n", "<leader>mr", ":vsplit | term ./bin/main<CR>", { silent = true })
@@ -43,6 +50,17 @@ Map("n", "<leader>Mr", ":horizontal split | term ./bin/main<CR>", { silent = tru
 Map("n", "<leader>mg", ":vsplit | term go run .<CR>", { silent = true })
 Map("n", "<leader>Mg", ":horizontal split | term go run .<CR>", { silent = true })
 Map("n", "<C-g>", ":vsplit | term go run .<CR>", { silent = true })
+
+Map("n", "<leader>ce", ":vsplit | edit ~/.config/nvim/lua/custom/init.lua<CR>", { silent = true, desc = "edit main config" })
+
+Map("n", "<leader>T", ":lua vim.diagnostic.goto_next()<CR>", { silent = true, desc = "goto next error" })
+Map("n", "<C-f>", "V/\\%V", { silent = true, desc = "search line" })
+
+-- Terminal Movements
+Map("t", "<C-h>", "<C-\\><C-n><C-w>h")
+Map("t", "<C-l>", "<C-\\><C-n><C-w>l")
+Map("t", "<C-j>", "<C-\\><C-n><C-w>j")
+Map("t", "<C-k>", "<C-\\><C-n><C-w>k")
 
 local set = vim.opt
 local sot = vim.o
@@ -63,3 +81,6 @@ set.tabstop=4
 set.shiftwidth = 4
 set.softtabstop = -1
 set.smarttab = true
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
