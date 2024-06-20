@@ -83,6 +83,8 @@ local plugins = {
                     "gfx",
                     "assets",
                     "__pyache__",
+                    "data",
+                    "venv"
                 }
             }
         }

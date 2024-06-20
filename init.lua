@@ -18,7 +18,7 @@ Map('n', "<leader>s", "v$h", {silent=true})
 Map('n', "<leader>y", ":redo<CR>", {silent=true})
 
 
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 local set = vim.opt
 local sot = vim.o
 set.number = true
