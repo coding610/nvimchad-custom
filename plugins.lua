@@ -154,4 +154,11 @@ return {
           "kkharji/sqlite.lua", -- Optional, sqlite support
         }
     },
+    {
+        'stevearc/oil.nvim',
+        event = "VeryLazy",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {},
+        config = function() end
+    }
 }
