@@ -1,7 +1,7 @@
 ---@class ChadrcConfig
 local M = {}
 
-M.ui = { theme = 'gruvbox' }
+M.ui = { theme = 'gruvchad' }
 M.plugins = 'custom.plugins'
 M.mappings = require('custom.mappings')
 

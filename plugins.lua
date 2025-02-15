@@ -109,7 +109,12 @@ return {
                     "gfx",
                     "assets",
                     "__pyache__",
-                    "venv"
+                    "venv",
+                    "submods",
+                    "imgui",
+                    "vmmlib",
+                    "extern",
+                    "shaders"
                 }
             }
         }

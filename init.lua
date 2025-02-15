@@ -28,8 +28,8 @@ Map('n', "<leader>o", ":wqa<CR>", {silent=true})
 Map('n', "<leader>pv", ":NvimTreeToggle<CR>", {silent=true})
 Map('n', "<leader><leader>", ":so<CR>", {silent=true})
 Map('n', "<leader>pf", ":Telescope find_files<CR>", {silent=true})
-Map('n', "<leader>pdd", ":lua vim.diagnostic.disable()<CR>", {silent=true})
-Map('n', "<leader>pde", ":lua vim.diagnostic.enable()<CR>", {silent=true})
+Map('n', "<leader>pdd", ":lua vim.diagnostic.disable()<CR>", { silent=true, desc="disable diagnostics"})
+Map('n', "<leader>pde", ":lua vim.diagnostic.enable()<CR>", { silent=true, desc="enable diagnostics" })
 Map('n', "<leader>ge", ":lua lsp.goto_", {silent=true})
 Map('n', "<leader>s", "v$h", {silent=true})
 Map('n', "<leader>y", ":redo<CR>", {silent=true})
@@ -43,8 +43,8 @@ Map("n", "<leader>E", ":lua vim.lsp.buf.hover() <CR>", { silent = true, desc = "
 
 Map("n", "<leader>S", ":DBUIToggle<CR>", { silent = true, desc = "[S]QL" })
 
-Map("n", "m", ":vsplit | term make<CR>", { silent = true })
-Map("n", "M", ":horizontal split | term make<CR>", { silent = true })
+Map("n", "m", ":vsplit | term make all run<CR>", { silent = true })
+Map("n", "M", ":horizontal split | term make all run<CR>", { silent = true })
 Map("n", "<leader>mr", ":vsplit | term ./bin/main<CR>", { silent = true })
 Map("n", "<leader>Mr", ":horizontal split | term ./bin/main<CR>", { silent = true })
 Map("n", "<leader>mg", ":vsplit | term go run .<CR>", { silent = true })
@@ -53,7 +53,7 @@ Map("n", "<C-g>", ":vsplit | term go run .<CR>", { silent = true })
 
 Map("n", "<leader>ce", ":vsplit | edit ~/.config/nvim/lua/custom/init.lua<CR>", { silent = true, desc = "edit main config" })
 
-Map("n", "<leader>T", ":lua vim.diagnostic.goto_next()<CR>", { silent = true, desc = "goto next error" })
+Map("n", "T", ":lua vim.diagnostic.goto_next()<CR>", { silent = true, desc = "goto next error" })
 Map("n", "<C-f>", "V/\\%V", { silent = true, desc = "search line" })
 
 -- Terminal Movements
